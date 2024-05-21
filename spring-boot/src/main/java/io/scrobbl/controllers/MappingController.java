@@ -1,4 +1,4 @@
-package com.example.springboot;
+package io.scrobbl.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
