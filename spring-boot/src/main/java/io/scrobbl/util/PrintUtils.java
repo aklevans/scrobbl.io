@@ -5,7 +5,7 @@ import io.scrobbl.api.lastfm.Album;
 
 public class PrintUtils {
 
-    public static String AlbumsToCSV(ArrayList<Album> albums) {
+    public static String AlbumsToCSV(List<Album> albums) {
         StringBuilder sb = new StringBuilder();
         for( Album a : albums) {
             sb.append(a.getName());

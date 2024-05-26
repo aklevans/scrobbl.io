@@ -2,33 +2,41 @@ package io.scrobbl.models;
 
 import java.util.*;
 
-import io.scrobbl.api.lastfm.Album;
-import io.scrobbl.api.lastfm.Period;
-import io.scrobbl.api.lastfm.User;
+
 import jakarta.persistence.*;
-import lombok.Data;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
+
 
 @Entity
 @Table(name = "GAME")
 public class Game {
 
 	@Id
-	@GeneratedValue
-	@Column(name = "ID")
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 
-	private ArrayList<Player> players;
+	@ElementCollection(targetClass = Player.class, fetch = FetchType.EAGER)
+	@CollectionTable(name="PLAYERS", joinColumns = @JoinColumn(name = "GAME_ID"))
+	private List<Player> players = new ArrayList<>();
 
 	public static final String KEY = System.getenv("APIKEY");
 	
 	public Game() {
-		this.players = new ArrayList<>();
 	}
 	
-	public void addPlayer(User player) {
-		//playerAlbums.put(player.getName(), User.getTopAlbums(player.getName(), Period.OVERALL, 75, KEY));
-		players.add(new Player(player.getName()));
+	public void addPlayer(Player player) {
+		players.add(player);
+	}
+
+	public void setPlayers(List<Player> players){
+		this.players = players;
+	}
+
+	public List<Player> getPlayers(){
+		return players;
+	}
+
+	public int getId(){
+		return id;
 	}
 
 	public void recalcTopAlbums(int limit){
