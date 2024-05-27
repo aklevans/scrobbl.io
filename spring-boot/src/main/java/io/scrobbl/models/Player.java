@@ -31,13 +31,21 @@ public class Player {
         return knownAlbums;
     }
 
+    public void setId(long id){
+        this.id = id;
+    }
+
+    public long getId(){
+        return id;
+    }
+
     public void setKnownAlbums(List<String> albums){
         this.knownAlbums = albums;
     }
 
     public Player(String name){
         this.name = name;
-        //calcTopAlbums(50);
+        calcTopAlbums(50);
 
     }
 

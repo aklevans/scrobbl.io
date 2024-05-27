@@ -5,10 +5,10 @@ import io.scrobbl.api.lastfm.Album;
 
 public class PrintUtils {
 
-    public static String AlbumsToCSV(List<Album> albums) {
+    public static String toCSV(List<String> albums) {
         StringBuilder sb = new StringBuilder();
-        for( Album a : albums) {
-            sb.append(a.getName());
+        for( String a : albums) {
+            sb.append(a);
             sb.append(",");
         }
         return sb.toString();
