@@ -3,10 +3,8 @@ package io.scrobbl.models;
 import java.util.*;
 
 
-import io.scrobbl.api.lastfm.Album;
-import io.scrobbl.services.GameService;
+import io.scrobbl.library.lastfm.Album;
 import jakarta.persistence.*;
-import org.springframework.beans.factory.annotation.Autowired;
 
 
 @Entity
@@ -57,10 +55,7 @@ public class Game {
 		return id;
 	}
 
-
-
 	public List<String> calcOverlap() {
-
 		for(Player player : players) {
 
 			List<String> albums = player.getKnownAlbums();

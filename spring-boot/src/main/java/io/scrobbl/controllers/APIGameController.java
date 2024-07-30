@@ -1,6 +1,6 @@
 package io.scrobbl.controllers;
 
-import io.scrobbl.api.lastfm.User;
+import io.scrobbl.library.lastfm.User;
 import io.scrobbl.models.Game;
 import io.scrobbl.models.Player;
 import io.scrobbl.services.GameService;

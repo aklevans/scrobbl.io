@@ -13,5 +13,7 @@ public interface PlayerRepository extends CrudRepository<Player, Long> {
 
     Player findById(long id);
 
+    void deleteAll();
+
 
 }

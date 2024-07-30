@@ -1,6 +1,5 @@
 package io.scrobbl.models;
 
-import io.scrobbl.api.lastfm.Album;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;

@@ -1,14 +1,13 @@
 package io.scrobbl.models;
 
-import io.scrobbl.api.lastfm.Album;
-import io.scrobbl.api.lastfm.Period;
-import io.scrobbl.api.lastfm.User;
+import io.scrobbl.library.lastfm.Album;
+import io.scrobbl.library.lastfm.Period;
+import io.scrobbl.library.lastfm.User;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.Map;
 
 @Entity
 public class Player {
