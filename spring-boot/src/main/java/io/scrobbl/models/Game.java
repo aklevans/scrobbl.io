@@ -3,7 +3,7 @@ package io.scrobbl.models;
 import java.util.*;
 
 
-import io.scrobbl.library.lastfm.Album;
+import io.scrobbl.lastfm.Album;
 import jakarta.persistence.*;
 
 
