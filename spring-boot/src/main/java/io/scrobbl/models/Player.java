@@ -1,8 +1,9 @@
 package io.scrobbl.models;
 
-import io.scrobbl.library.lastfm.Album;
-import io.scrobbl.library.lastfm.Period;
-import io.scrobbl.library.lastfm.User;
+
+import io.scrobbl.lastfm.Album;
+import io.scrobbl.lastfm.Period;
+import io.scrobbl.lastfm.User;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
