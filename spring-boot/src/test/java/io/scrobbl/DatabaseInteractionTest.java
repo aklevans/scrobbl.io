@@ -1,7 +1,8 @@
-package io.scrobbl.services;
+package io.scrobbl;
 
 import io.scrobbl.models.Game;
 import io.scrobbl.models.Player;
+import io.scrobbl.services.GameService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
