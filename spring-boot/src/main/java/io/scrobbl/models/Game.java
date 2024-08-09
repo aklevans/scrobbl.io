@@ -30,7 +30,7 @@ public class Game {
 	}
 	
 	public void addPlayer(Player player) {
-		player.calcTopAlbums(50);
+		//player.calcTopAlbums(50);
 		players.add(player);
 	}
 
@@ -55,28 +55,26 @@ public class Game {
 		return id;
 	}
 
-	public List<String> calcOverlap() {
+	public List<String> calcOverlap(double knownThreshold) {
 		for(Player player : players) {
-
-			List<String> albums = player.getKnownAlbums();
+			List<String> albums = player.getTopAlbums();
 			for(String albumMBID : albums) {
 				Album album = Album.getInfo(null, albumMBID, player.getName(), KEY);
 				if(album == null){
 					continue;
 				}
-				boolean allMatch = true;
+				int numMatch = 1; // you know your own albums
 				for(Player other : players) {
 					if(other.equals(player)) {
 						continue;
 					}
-					//Artist oa2 = Artist.getInfo(a.getArtist(), other.getName(), KEY);
 
-					if(Album.getInfo(album.getArtist(), album.getName(), other.getName(), KEY).getUserPlaycount() < 10 ) {
-						allMatch = false;
-						break;
+					if(Album.getInfo(album.getArtist(), album.getName(), other.getName(), KEY).getUserPlaycount() > 0 ) {
+						numMatch++;
 					}
 				}
-				if(allMatch && !overlap.contains(album.getName())) {
+				double percentKnown = (double) numMatch / players.size();
+				if(percentKnown >= knownThreshold) {
 					overlap.add(album.getName());
 				}
 			}

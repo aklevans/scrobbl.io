@@ -21,14 +21,17 @@ public class Player {
     private String name;
 
     @ElementCollection(targetClass = String.class, fetch = FetchType.EAGER)
+    @CollectionTable(name="TOP_ALBUMS", joinColumns = @JoinColumn(name = "PLAYER_ID"))
+    private List<String> topAlbums = new ArrayList<>();
+
+    @ElementCollection(targetClass = String.class, fetch = FetchType.EAGER)
     @CollectionTable(name="KNOWN_ALBUMS", joinColumns = @JoinColumn(name = "PLAYER_ID"))
     private List<String> knownAlbums = new ArrayList<>();
 
-
     protected Player() {}
 
-    public List<String> getKnownAlbums(){
-        return knownAlbums;
+    public List<String> getTopAlbums(){
+        return topAlbums;
     }
 
     public void setId(long id){
@@ -39,8 +42,8 @@ public class Player {
         return id;
     }
 
-    public void setKnownAlbums(List<String> albums){
-        this.knownAlbums = albums;
+    public void setTopAlbums(List<String> albums){
+        this.topAlbums = albums;
     }
 
     public Player(String name){
@@ -52,7 +55,7 @@ public class Player {
     public void calcTopAlbums(int limit){
         Collection<Album> c = User.getTopAlbums(name, Period.OVERALL, limit, System.getenv("APIKEY"));
         for(Album a : c){
-            knownAlbums.add(a.getMbid());
+            topAlbums.add(a.getMbid());
         }
     }
 
@@ -61,7 +64,7 @@ public class Player {
     }
 
     public List<String> getAlbums(){
-        return knownAlbums;
+        return topAlbums;
     }
 
     public void setName(String name){

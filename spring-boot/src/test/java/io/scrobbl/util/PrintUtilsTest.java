@@ -1,6 +1,6 @@
 package io.scrobbl.util;
 
-import io.scrobbl.library.lastfm.Album;
+import io.scrobbl.lastfm.Album;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;

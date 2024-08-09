@@ -1,6 +1,6 @@
 package io.scrobbl.controllers;
 
-import io.scrobbl.library.lastfm.User;
+import io.scrobbl.lastfm.User;
 import io.scrobbl.models.Game;
 import io.scrobbl.models.Player;
 import io.scrobbl.services.GameService;
@@ -43,7 +43,7 @@ public class APIGameController {
     public String getOverlap(@PathVariable("gameid") final long id, @RequestParam(name = "recalc") boolean recalc){
         Game g = gameService.findById(id);
         if(recalc){
-            g.calcOverlap();
+            g.calcOverlap(1);
         }
         return PrintUtils.toCSV(g.getOverlap());
     }

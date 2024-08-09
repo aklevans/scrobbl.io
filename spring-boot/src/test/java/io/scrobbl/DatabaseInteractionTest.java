@@ -33,13 +33,13 @@ public class DatabaseInteractionTest {
         known1.add("album1");
         known1.add("album2");
 
-        p1.setKnownAlbums(known1);
+        p1.setTopAlbums(known1);
 
         List<String> known2 = new ArrayList<>();
         known2.add("album3");
         known2.add("album4");
         known2.add("album5");
-        p2.setKnownAlbums(known2);
+        p2.setTopAlbums(known2);
 
         g.addPlayer(p1);
         g.addPlayer(p2);
@@ -50,13 +50,13 @@ public class DatabaseInteractionTest {
         List<Player> players = g2.getPlayers();
         assertEquals(2, players.size());
         assertEquals("player 1", players.get(0).getName());
-        assertEquals(2, players.get(0).getKnownAlbums().size());
-        assertEquals("album1", players.get(0).getKnownAlbums().get(0));
-        assertEquals("album2", players.get(0).getKnownAlbums().get(1));
-        assertEquals(3, players.get(1).getKnownAlbums().size());
-        assertEquals("album3", players.get(1).getKnownAlbums().get(0));
-        assertEquals("album4", players.get(1).getKnownAlbums().get(1));
-        assertEquals("album5", players.get(1).getKnownAlbums().get(2));
+        assertEquals(2, players.get(0).getTopAlbums().size());
+        assertEquals("album1", players.get(0).getTopAlbums().get(0));
+        assertEquals("album2", players.get(0).getTopAlbums().get(1));
+        assertEquals(3, players.get(1).getTopAlbums().size());
+        assertEquals("album3", players.get(1).getTopAlbums().get(0));
+        assertEquals("album4", players.get(1).getTopAlbums().get(1));
+        assertEquals("album5", players.get(1).getTopAlbums().get(2));
 
     }
 }

@@ -19,11 +19,12 @@ public class GameTest {
         List<Player> players = g.getPlayers();
         assertEquals(2, players.size());
 
-        assertEquals(50, players.get(0).getKnownAlbums().size());
-        assertEquals(50, players.get(1).getKnownAlbums().size());
+        assertEquals(50, players.get(0).getTopAlbums().size());
+        assertEquals(50, players.get(1).getTopAlbums().size());
 
-        List<String> overlap = g.getOverlap();
-        //System.out.println(overlap);
+        List<String> overlap = g.calcOverlap(1.0);
+
+        System.out.println(overlap);
 
     }
 }
